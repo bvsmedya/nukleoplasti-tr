@@ -1,6 +1,7 @@
-import Navbar from "./../components/Navbar";
-import Footer from "./../components/Footer";
+import Navbar from "../components/Navbar"; // Sadece 2 nokta (Bir üst klasör)
+import Footer from "../components/Footer"; // Sadece 2 nokta
 import Link from "next/link";
+
 
 export default function BlogIndex() {
   return (
@@ -46,13 +47,34 @@ export default function BlogIndex() {
             <div className="p-6 flex flex-col flex-grow">
               <span className="text-xs font-bold text-purple-600 uppercase tracking-wide">Boyun Fıtığı</span>
               <h2 className="text-xl font-bold text-gray-900 mt-2 group-hover:text-purple-600 transition">
-                Boyun Fıtığında Ameliyatsız Çözüm
+                Boyun Fıtığında Çözüm
               </h2>
               <p className="text-gray-500 mt-2 text-sm line-clamp-3">
                 CervaLance teknolojisi ile boyun fıtıklarına güvenli yaklaşım. Riskler nelerdir, kimlere uygulanır?
               </p>
               <div className="mt-auto pt-4">
                 <Link href="/blog/boyun-fitiginda-nukleoplasti" className="text-purple-600 font-semibold hover:underline">
+                  Devamını Oku →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* YAZI 3: Bel Fıtığı (YENİ EKLENDİ!) */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group flex flex-col h-full">
+            <div className="h-48 bg-green-100 flex items-center justify-center">
+              <span className="text-6xl">🦴</span>
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <span className="text-xs font-bold text-green-600 uppercase tracking-wide">Bel Fıtığı</span>
+              <h2 className="text-xl font-bold text-gray-900 mt-2 group-hover:text-green-600 transition">
+                Bel Fıtığında Nokta Atışı
+              </h2>
+              <p className="text-gray-500 mt-2 text-sm line-clamp-3">
+                Siyatik ağrısı ve bacak uyuşmasında LumbaLance teknolojisi ile tanışın. Açık ameliyatın alternatifi.
+              </p>
+              <div className="mt-auto pt-4">
+                <Link href="/blog/bel-fitiginda-nukleoplasti" className="text-green-600 font-semibold hover:underline">
                   Devamını Oku →
                 </Link>
               </div>

@@ -27,11 +27,7 @@ export default function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Ana Sayfa</Link>
             <Link href="/nedir" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Nedir?</Link>
             <Link href="/tedavi" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Tedavi Süreci</Link>
-            
-            {/* --- İŞTE YENİ EKLEDİĞİMİZ BLOG BUTONU --- */}
-            <Link href="/blog/nukleoplasti-nedir" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Blog</Link>
-            {/* ----------------------------------------- */}
-            
+            <Link href="/blog" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Blog</Link>
           </div>
 
           {/* İLETİŞİM BUTONU */}
