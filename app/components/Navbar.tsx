@@ -3,9 +3,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaBars, FaTimes, FaPhone, FaCloudUploadAlt } from 'react-icons/fa';
+import { translations } from '../translations'; // Sözlüğü dahil ettik
 
-export default function Navbar() {
+export default function Navbar({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const t = translations[lang].nav; // O anki dilin kelimelerini seçtik
+
+  // Dil klasörüne göre link yapısını ayarlar (TR ise /, değilse /en gibi)
+  const base = lang === "tr" ? "" : `/${lang}`;
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-[100]">
@@ -14,43 +19,52 @@ export default function Navbar() {
           
           {/* LOGO KISMI */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href={lang === "tr" ? "/" : `/${lang}`} className="flex items-center gap-2 group">
               <img 
                 src="/logo.png" 
                 alt="Nükleoplasti Logo" 
                 className="h-10 w-auto group-hover:scale-105 transition duration-300" 
               />
-              <span className="text-xl md:text-2xl font-bold text-blue-900">
+              <span className="text-xl md:text-2xl font-bold text-blue-900 font-sans">
                 Nükleoplasti<span className="text-blue-500">.tr</span>
               </span>
             </Link>
           </div>
 
-          {/* MASAÜSTÜ MENÜ LİNKLERİ (Ekran genişse görünür) */}
+          {/* MASAÜSTÜ MENÜ LİNKLERİ */}
           <div className="hidden lg:flex space-x-6 items-center">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">Ana Sayfa</Link>
-            <Link href="/nedir" className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">Nedir?</Link>
-            <Link href="/tedavi" className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">Tedavi Süreci</Link>
-            <Link href="/blog" className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">Blog</Link>
-            <Link href="/test" className="text-blue-600 font-bold px-2 py-2 animate-pulse">Test Et</Link>
+            <Link href={`${base}/`} className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">{t.home}</Link>
+            <Link href={`${base}/nedir`} className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">{t.whatIs}</Link>
+            <Link href={`${base}/tedavi`} className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">{t.process}</Link>
+            <Link href={`${base}/blog`} className="text-gray-700 hover:text-blue-600 px-2 py-2 font-medium transition">{t.blog}</Link>
+            <Link href={`${base}/test`} className="text-blue-600 font-bold px-2 py-2 animate-pulse">{t.test}</Link>
             
             <a href="https://www.emaryolla.com" target="_blank" className="flex items-center text-orange-600 font-bold px-2 py-2">
-               <FaCloudUploadAlt className="mr-1" /> MR Yolla
+               <FaCloudUploadAlt className="mr-1" /> {t.mr}
             </a>
+
+            {/* DİL SEÇİCİ */}
+            <div className="flex gap-1 text-[10px] font-black border-l pl-4 border-gray-200 uppercase">
+                <Link href="/" className={lang === 'tr' ? 'text-blue-600' : 'text-gray-400 hover:text-blue-400'}>TR</Link>
+                <span className="text-gray-200">|</span>
+                <Link href="/en" className={lang === 'en' ? 'text-blue-600' : 'text-gray-400'}>EN</Link>
+                <span className="text-gray-200">|</span>
+                <Link href="/fr" className={lang === 'fr' ? 'text-blue-600' : 'text-gray-400'}>FR</Link>
+            </div>
 
             <div className="h-8 w-[1px] bg-gray-200 mx-2"></div>
 
             <a href="tel:+905321744900" className="flex flex-col items-end text-gray-700 group">
-              <span className="text-[10px] font-bold text-gray-400 uppercase">Danışma Hattı</span>
-              <span className="text-md font-bold group-hover:text-blue-600 transition">0532 174 49 00</span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase leading-none mb-1">{t.consult}</span>
+              <span className="text-md font-bold group-hover:text-blue-600 transition leading-none">0532 174 49 00</span>
             </a>
 
-            <Link href="/iletisim" className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-700 transition shadow-md">
-              İletişim
+            <Link href={`${base}/iletisim`} className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-700 transition shadow-md">
+              {t.contact}
             </Link>
           </div>
 
-          {/* MOBİL MENÜ BUTONU (Sadece küçük ekranda görünür) */}
+          {/* MOBİL BUTONLAR */}
           <div className="lg:hidden flex items-center gap-4">
             <a href="tel:+905321744900" className="text-blue-600 p-2 border border-blue-100 rounded-full">
               <FaPhone size={18} />
@@ -65,17 +79,25 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBİL AÇILIR MENÜ PANELİ */}
+      {/* MOBİL PANEL */}
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100 animate-in slide-in-from-top duration-300">
           <div className="px-4 pt-4 pb-8 space-y-2 shadow-2xl text-center">
-            <Link href="/" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">Ana Sayfa</Link>
-            <Link href="/nedir" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">Nükleoplasti Nedir?</Link>
-            <Link href="/tedavi" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">Tedavi Süreci</Link>
-            <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">Blog & Makaleler</Link>
-            <Link href="/test" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-bold text-blue-600 border-b border-gray-50">Tedavi Uygunluk Testi</Link>
-            <a href="https://www.emaryolla.com" target="_blank" className="block px-3 py-4 text-lg font-bold text-orange-600 border-b border-gray-50">Emar Yolla</a>
-            <Link href="/iletisim" onClick={() => setIsOpen(false)} className="block mt-6 bg-blue-600 text-white px-3 py-4 rounded-xl font-bold">Bize Ulaşın</Link>
+            <Link href={`${base}/`} onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">{t.home}</Link>
+            <Link href={`${base}/nedir`} onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">{t.whatIs}</Link>
+            <Link href={`${base}/tedavi`} onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">{t.process}</Link>
+            <Link href={`${base}/blog`} onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-semibold text-gray-700 border-b border-gray-50">{t.blog}</Link>
+            <Link href={`${base}/test`} onClick={() => setIsOpen(false)} className="block px-3 py-4 text-lg font-bold text-blue-600 border-b border-gray-50">{t.testLong}</Link>
+            <a href="https://www.emaryolla.com" target="_blank" className="block px-3 py-4 text-lg font-bold text-orange-600 border-b border-gray-50">{t.mr}</a>
+            
+            {/* MOBİL DİL SEÇİMİ */}
+            <div className="flex justify-center gap-6 py-4 border-b border-gray-50 font-black text-xs uppercase">
+                <Link href="/" onClick={() => setIsOpen(false)} className={lang === 'tr' ? 'text-blue-600' : 'text-gray-400'}>Türkçe</Link>
+                <Link href="/en" onClick={() => setIsOpen(false)} className={lang === 'en' ? 'text-blue-600' : 'text-gray-400'}>English</Link>
+                <Link href="/fr" onClick={() => setIsOpen(false)} className={lang === 'fr' ? 'text-blue-600' : 'text-gray-400'}>Français</Link>
+            </div>
+
+            <Link href={`${base}/iletisim`} onClick={() => setIsOpen(false)} className="block mt-6 bg-blue-600 text-white px-3 py-4 rounded-xl font-bold">{t.contactLong}</Link>
           </div>
         </div>
       )}

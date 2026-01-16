@@ -15,7 +15,7 @@ export default function Home() {
       {/* 1. ANA SLIDER (Hasta Odaklı) */}
       <HeroSlider />
       
-      {/* AVANTAJ KUTULARI */}
+       {/* 2. AVANTAJ KUTULARI */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center">
@@ -33,13 +33,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. INFOSLIDER (İstediğin yer: Avantajların hemen altı) */}
-      <InfoSlider />
-
       {/* 3. TEDAVİ ALANLARI KARTLARI */}
       <TreatmentAreas />
 
-      {/* 4. EMAR YÜKLEME ALANI */}
+      {/* 4. TEKNOLOJİ VE KONFOR (InfoSlider) */}
+      <InfoSlider />
+
+      {/* 5. EMAR YÜKLEME ALANI */}
       <EmarUpload />
       
       <Footer />
