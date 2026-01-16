@@ -3,45 +3,35 @@ import Footer from "./components/Footer";
 import HeroSlider from "./components/HeroSlider";
 import TreatmentAreas from "./components/TreatmentAreas";
 import EmarUpload from "./components/EmarUpload";
-import FloatingButtons from "./components/FloatingButtons"; // <-- YENİ EKLENEN
-import Link from "next/link";
+import FloatingButtons from "./components/FloatingButtons";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col relative">
       <Navbar />
-      
-      {/* SABİT BUTONLAR (SAĞ ALT) */}
       <FloatingButtons />
-
-      {/* 1. MANŞET (Slider) */}
       <HeroSlider />
-
-      {/* 2. BİLGİ KUTUCUKLARI */}
+      
+      {/* Avantaj Kutuları */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-xl font-bold text-blue-900 mb-3">Neştersiz</h3>
-            <p className="text-gray-600">Ameliyatsız, sadece iğne deliğinden girilerek yapılan minimal invaziv işlem.</p>
+            <p className="text-gray-600">Sadece iğne deliğinden girilerek yapılan işlem.</p>
           </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-xl font-bold text-blue-900 mb-3">Hızlı Taburcu</h3>
             <p className="text-gray-600">İşlemden 1-2 saat sonra yürüyerek eve dönebilirsiniz.</p>
           </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-xl font-bold text-blue-900 mb-3">Güvenli</h3>
-            <p className="text-gray-600">Sağlam dokulara zarar vermeyen ileri Coblation teknolojisi.</p>
+            <p className="text-gray-600">Sağlam dokulara zarar vermeyen Coblation teknolojisi.</p>
           </div>
         </div>
       </section>
 
-      {/* 3. RESİMLİ TEDAVİ ALANLARI */}
       <TreatmentAreas />
-
-      {/* 4. EMAR YÜKLEME ALANI */}
       <EmarUpload />
-      
-      {/* 5. ALT KISIM */}
       <Footer />
     </div>
   );

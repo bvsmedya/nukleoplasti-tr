@@ -1,39 +1,37 @@
-"use client"; // Bu satır zorunlu çünkü hareketli bir parça yapıyoruz
-
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
+    image: "/slider-teknoloji.jpg",
     title: "Ameliyatsız Bel Fıtığı Tedavisi",
     desc: "Nükleoplasti yöntemi ile ağrılarınızdan kesi ve dikiş olmadan, aynı gün kurtulun.",
     buttonText: "Tedaviyi İncele",
-    link: "/nedir",
+    link: "/blog/nukleoplasti-nedir",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2080&auto=format&fit=crop",
-    title: "Boyun Fıtığında Güvenli Çözüm",
-    desc: "CervaLance teknolojisi ile hassas ve güvenli bir şekilde boyun ağrılarına son verin.",
-    buttonText: "Boyun Fıtığı Detay",
-    link: "/blog/boyun-fitiginda-nukleoplasti",
+    image: "/slider-uzmanlik.jpg",
+    title: "Uzman Hekim Kadrosu", // BVS Doctors yazısını kaldırdık :)
+    desc: "Alanında uzman kadromuz ve en güncel plazma teknolojisi ile sağlığınıza güvenle kavuşun.",
+    buttonText: "Bilgi Al",
+    link: "/iletisim",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
-    title: "Hızlı İyileşme, Hızlı İşe Dönüş",
-    desc: "Hastanede yatış yok. İşlemden 1 saat sonra yürüyerek taburcu olun.",
-    buttonText: "İletişime Geç",
-    link: "/iletisim",
+    image: "/slider-konfor.jpg",
+    title: "Hızlı İyileşme, Kesintisiz Hayat",
+    desc: "İşlemden 1-2 saat sonra yürüyerek taburcu olun, sosyal hayatınıza ara vermeyin.",
+    buttonText: "Uygunluk Testi",
+    link: "/test",
   },
 ];
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
 
-  // Otomatik Kaydırma (5 saniyede bir)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -43,8 +41,6 @@ export default function HeroSlider() {
 
   return (
     <div className="relative h-[600px] w-full overflow-hidden bg-gray-900">
-      
-      {/* Slaytlar */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -58,15 +54,15 @@ export default function HeroSlider() {
             style={{ backgroundImage: `url(${slide.image})` }}
           />
           
-          {/* Karartma Katmanı (Yazı okunsun diye) */}
-          <div className="absolute inset-0 bg-black/50" />
+          {/* Karartma Katmanı */}
+          <div className="absolute inset-0 bg-black/40" />
 
           {/* Yazı İçeriği */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
               {slide.title}
             </h1>
-            <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-3xl drop-shadow-md">
+            <p className="text-lg md:text-2xl text-gray-100 mb-8 max-w-3xl drop-shadow-md">
               {slide.desc}
             </p>
             <Link
@@ -79,7 +75,7 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* Alt Noktalar (Dots) */}
+      {/* Alt Noktalar */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
         {slides.map((_, index) => (
           <button
