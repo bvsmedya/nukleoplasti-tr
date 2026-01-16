@@ -44,7 +44,7 @@ export default function Navbar({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
             </a>
 
             {/* DİL SEÇİCİ */}
-            <div className="flex gap-1 text-[9px] xl:text-[10px] items-center font-black border-l pl-2 xl:pl-3 border-gray-200 uppercase whitespace-nowrap">
+            <div lang={lang} className="flex gap-1 text-[9px] xl:text-[10px] items-center font-black border-l pl-2 xl:pl-3 border-gray-200 uppercase whitespace-nowrap">
               <Link href="/" className={`${lang === 'tr' ? 'text-blue-600' : 'text-gray-400 hover:text-blue-400'} flex items-center gap-0.5`}>
                 <span>🇹🇷</span> TR
               </Link>
@@ -62,7 +62,7 @@ export default function Navbar({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
 
             {/* TELEFON */}
             <a href="tel:+905321744900" className="flex flex-col items-end text-gray-700 group whitespace-nowrap min-w-fit">
-              <span className="text-[9px] xl:text-[10px] font-bold text-gray-400 uppercase leading-none mb-1">{t.consult}</span>
+              <span lang={lang} className="text-[9px] xl:text-[10px] font-bold text-gray-400 uppercase leading-none mb-1">{t.consult}</span>
               <span className="text-sm xl:text-md font-black group-hover:text-blue-600 transition leading-none whitespace-nowrap">+90 532 174 49 00</span>
             </a>
 
@@ -98,7 +98,7 @@ export default function Navbar({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
             <Link href={`${base}/test`} onClick={() => setIsOpen(false)} className="block py-4 text-lg font-bold text-blue-600 border-b border-gray-50">{t.testLong}</Link>
             <a href="https://www.emaryolla.com" target="_blank" className="block py-4 text-lg font-bold text-orange-600 border-b border-gray-50">{t.mr}</a>
 
-            <div className="flex justify-center gap-6 py-4 border-b border-gray-50 font-black text-xs uppercase items-center">
+            <div lang={lang} className="flex justify-center gap-6 py-4 border-b border-gray-50 font-black text-xs uppercase items-center">
               <Link href="/" onClick={() => setIsOpen(false)} className={`${lang === 'tr' ? 'text-blue-600' : 'text-gray-400'} flex items-center gap-1`}>
                 <span>🇹🇷</span> Türkçe
               </Link>

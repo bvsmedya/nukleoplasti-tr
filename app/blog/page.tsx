@@ -60,7 +60,7 @@ export default function BlogIndex({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }
                 <span className="text-6xl">{post.emoji}</span>
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <span className={`text-xs font-bold ${post.labelColor} uppercase tracking-wide`}>{post.label}</span>
+                <span lang={lang} className={`text-xs font-bold ${post.labelColor} uppercase tracking-wide`}>{post.label}</span>
                 <h2 className="text-xl font-bold text-gray-900 mt-2 group-hover:text-blue-600 transition">
                   {post.title}
                 </h2>

@@ -76,6 +76,17 @@ export const translations = {
       desc: "Güncel tedavi yöntemleri ve bilimsel veriler.",
       readMore: "Devamını Oku →"
     },
+    kvkkPage: {
+      title: "KVKK Aydınlatma Metni",
+      sec1Title: "1. Veri Sorumlusu",
+      sec1Text: "Nukleoplasti.tr olarak, kişisel verilerinizin güvenliği hususuna azami hassasiyet göstermekteyiz. Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“Kanun”) uyarınca bilgilendirme amacıyla hazırlanmıştır.",
+      sec2Title: "2. Verilerin İşlenme Amacı",
+      sec2Text: "İletişim formları ve MR yükleme modülü üzerinden paylaştığınız bilgiler sadece tıbbi danışmanlık, randevu yönetimi ve bilgilendirme amaçlarıyla işlenmektedir.",
+      sec3Title: "3. Verilerin Saklanması",
+      sec3Text: "Verileriniz yalnızca uzman hekimlerimiz tarafından incelenir. Üçüncü şahıslara asla satılmaz.",
+      sec4Title: "4. Yasal Uyarı",
+      sec4Text: "ÖNEMLİ: Bu sitedeki bilgiler bilgilendirme amaçlıdır. Tanı ve tedavi yerine geçmez."
+    },
     footer: { about: "Ameliyatsız fıtık tedavisinde güvenilir bilgi kaynağınız.", quick: "Hızlı Erişim", contact: "Bize Ulaşın", disclaimer: "Tanı ve tedavi için mutlaka doktorunuza başvurun.", kvkk: "KVKK Aydınlatma" },
     common: { testBtn: "Uygunluk Testi" }
   },
@@ -149,6 +160,17 @@ export const translations = {
       desc: "Current treatment methods and scientific data.",
       readMore: "Read More →"
     },
+    kvkkPage: {
+      title: "Privacy Policy & GDPR",
+      sec1Title: "1. Data Controller",
+      sec1Text: "At Nukleoplasti.tr, we take the security of your personal data very seriously. This text is prepared for info under GDPR.",
+      sec2Title: "2. Purpose of Processing",
+      sec2Text: "The info you share is processed only for medical consulting, appointment management and info purposes.",
+      sec3Title: "3. Data Storage",
+      sec3Text: "Your data is only reviewed by our expert physicians. It is never sold.",
+      sec4Title: "4. Legal Disclaimer",
+      sec4Text: "IMPORTANT: Info on this site is for info only and doesn't replace diagnosis."
+    },
     footer: { about: "Your source for non-surgical hernia treatment.", quick: "Quick Links", contact: "Contact Us", disclaimer: "Consult your doctor for diagnosis.", kvkk: "Privacy Policy & GDPR Compliance" },
     common: { testBtn: "Eligibility Test" }
   },
@@ -221,6 +243,17 @@ export const translations = {
       title: "Blog & Articles",
       desc: "Méthodes de traitement actuelles et données scientifiques.",
       readMore: "Lire la Suite →"
+    },
+    kvkkPage: {
+      title: "Confidentialité & RGPD",
+      sec1Title: "1. Responsable",
+      sec1Text: "Chez Nukleoplasti.tr, nous prenons la sécurité de vos données très au sérieux. Ce texte est préparé selon le RGPD.",
+      sec2Title: "2. Finalité",
+      sec2Text: "Les informations partagées sont traitées à des fins de consultation, gestion de rendez-vous et information.",
+      sec3Title: "3. Stockage",
+      sec3Text: "Vos données ne sont examinées que par nos médecins spécialisés.",
+      sec4Title: "4. Mentions Légales",
+      sec4Text: "IMPORTANT: Les informations sur ce site sont à titre informatif seulement."
     },
     footer: { about: "Traitement non chirurgical des hernies.", quick: "Accès Rapide", contact: "Contactez-nous", disclaimer: "Consultez votre médecin.", kvkk: "Confidentialité & Conformité RGPD" },
     common: { testBtn: "Test d'Éligibilité" }

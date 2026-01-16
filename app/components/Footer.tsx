@@ -12,14 +12,14 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
     <footer className="bg-gray-900 text-white py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-          
+
           {/* Bölüm 1: Logo ve Açıklama */}
           <div>
             <Link href={base || "/"} className="flex items-center justify-center md:justify-start gap-2 mb-4 group">
-               <img 
-                src="/logo.png" 
-                alt="Nükleoplasti Logo" 
-                className="h-8 w-auto grayscale group-hover:grayscale-0 transition duration-300" 
+              <img
+                src="/logo.png"
+                alt="Nükleoplasti Logo"
+                className="h-8 w-auto grayscale group-hover:grayscale-0 transition duration-300"
               />
               <span className="text-2xl font-bold text-white">Nükleoplasti<span className="text-blue-500">.tr</span></span>
             </Link>
@@ -43,7 +43,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
               </li>
               <li><Link href={`${base}/iletisim`} className="hover:text-blue-400 transition">{n.contact}</Link></li>
               <li className="pt-2 border-t border-gray-800 mt-2">
-                <Link href={`${base}/kvkk`} className="text-xs hover:text-white transition opacity-50 uppercase tracking-wider">
+                <Link href={`${base}/kvkk`} lang={lang} className="text-xs hover:text-white transition opacity-50 uppercase tracking-wider">
                   {t.kvkk}
                 </Link>
               </li>
@@ -63,7 +63,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
                 <span>@nukleoplastitr</span>
               </a>
               <a href="https://www.tiktok.com/@nukleoplastitr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start group hover:text-white transition">
-                <FaTiktok className="text-xl mr-3 text-gray-100 group-hover:scale-110 transition" /> 
+                <FaTiktok className="text-xl mr-3 text-gray-100 group-hover:scale-110 transition" />
                 <span>@nukleoplastitr</span>
               </a>
             </div>

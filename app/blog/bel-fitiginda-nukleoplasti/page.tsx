@@ -32,7 +32,7 @@ export default function BlogPost3({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }
 
       <div className="bg-blue-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-sm text-blue-200 mb-4 font-semibold uppercase tracking-wider">
+          <div lang={lang} className="text-sm text-blue-200 mb-4 font-semibold uppercase tracking-wider">
             <Link href={`${base}/blog`} className="hover:text-white">{t.back}</Link> &gt; {t.makale}
           </div>
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">

@@ -60,7 +60,7 @@ export default function FitikTesti({ lang = "tr" }: { lang?: "tr" | "en" | "fr" 
               ></div>
             </div>
 
-            <span className="text-blue-600 font-bold text-sm uppercase tracking-widest">
+            <span lang={lang} className="text-blue-600 font-bold text-sm uppercase tracking-widest">
               {lang === 'tr' ? 'Soru' : (lang === 'fr' ? 'Question' : 'Question')} {currentStep + 1} / {questions.length}
             </span>
             <h2 className="text-2xl font-bold text-gray-900 mt-2 mb-8">

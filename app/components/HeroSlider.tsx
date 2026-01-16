@@ -5,7 +5,7 @@ import { translations } from "../translations"; // Sözlük bağlantısı
 
 export default function HeroSlider({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
   const [current, setCurrent] = useState(0);
-  
+
   // Sözlükten verileri çekiyoruz
   const t = translations[lang];
   const base = lang === "tr" ? "" : `/${lang}`;
@@ -37,7 +37,7 @@ export default function HeroSlider({ lang = "tr" }: { lang?: "tr" | "en" | "fr" 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 6000); 
+    }, 6000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -45,11 +45,11 @@ export default function HeroSlider({ lang = "tr" }: { lang?: "tr" | "en" | "fr" 
     <div className={`relative w-full overflow-hidden transition-colors duration-1000 ${slides[current].bgColor}`}>
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          
+
           {/* SOL TARAF: METİN İÇERİĞİ (Orijinal Animasyonlu Yapı) */}
           <div className="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
             <div key={current} className="animate-in fade-in slide-in-from-left duration-700">
-              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">
+              <span lang={lang} className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">
                 {slides[current].subtitle}
               </span>
               <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
@@ -78,8 +78,8 @@ export default function HeroSlider({ lang = "tr" }: { lang?: "tr" | "en" | "fr" 
           {/* SAĞ TARAF: KARE RESİM (Orijinal Çerçeveli Yapı) */}
           <div className="w-full md:w-1/2 order-1 md:order-2">
             <div key={current} className="relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden rounded-3xl shadow-2xl border-8 border-white animate-in fade-in zoom-in duration-700">
-              <img 
-                src={slides[current].image} 
+              <img
+                src={slides[current].image}
                 alt={slides[current].title}
                 className="w-full h-full object-cover"
               />
@@ -95,9 +95,8 @@ export default function HeroSlider({ lang = "tr" }: { lang?: "tr" | "en" | "fr" 
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === current ? "bg-blue-600 w-10" : "bg-gray-300"
-            }`}
+            className={`w-3 h-3 rounded-full transition-all ${index === current ? "bg-blue-600 w-10" : "bg-gray-300"
+              }`}
           />
         ))}
       </div>
