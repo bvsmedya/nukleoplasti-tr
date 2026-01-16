@@ -1,18 +1,23 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroSlider from "./components/HeroSlider";
-import TreatmentAreas from "./components/TreatmentAreas"; // İşte eksik olan satır buydu!
+import TreatmentAreas from "./components/TreatmentAreas";
+import EmarUpload from "./components/EmarUpload";
+import FloatingButtons from "./components/FloatingButtons"; // <-- YENİ EKLENEN
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col relative">
       <Navbar />
+      
+      {/* SABİT BUTONLAR (SAĞ ALT) */}
+      <FloatingButtons />
 
-      {/* Hero Slider (Manşet) */}
+      {/* 1. MANŞET (Slider) */}
       <HeroSlider />
 
-      {/* Bilgi Kutucukları */}
+      {/* 2. BİLGİ KUTUCUKLARI */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
@@ -30,9 +35,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tedavi Alanları (Resimli Bölüm) */}
+      {/* 3. RESİMLİ TEDAVİ ALANLARI */}
       <TreatmentAreas />
+
+      {/* 4. EMAR YÜKLEME ALANI */}
+      <EmarUpload />
       
+      {/* 5. ALT KISIM */}
       <Footer />
     </div>
   );
