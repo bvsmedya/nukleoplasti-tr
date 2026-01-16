@@ -7,10 +7,41 @@ import { useState } from "react";
 
 export default function Iletisim() {
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("Mesajınız başarıyla iletildi. En kısa sürede size döneceğiz.");
+    setIsSubmitting(true);
+    setStatus("Gönderiliyor...");
+
+    const formData = new FormData(e.currentTarget);
+    // Senin verdiğin Web3Forms Key'i buraya ekledik
+    formData.append("access_key", "de42f46e-be92-4ad8-b776-595a8c2fe997");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+      const result = await response.json();
+      if (result.success) {
+        setStatus("Mesajınız başarıyla iletildi. En kısa sürede size döneceğiz.");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus("Bir hata oluştu, lütfen tekrar deneyin.");
+      }
+    } catch (error) {
+      setStatus("Sistemsel bir hata oluştu. Lütfen WhatsApp üzerinden iletişime geçin.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -20,7 +51,7 @@ export default function Iletisim() {
       {/* Hero Header */}
       <div className="bg-blue-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Bizimle İletişime Geçin</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">Bizimle İletişime Geçin</h1>
           <p className="text-blue-200 text-lg">Ağrısız bir hayat için uzman ekibimiz her kanaldan size destek vermeye hazır.</p>
         </div>
       </div>
@@ -39,11 +70,11 @@ export default function Iletisim() {
                 <FaWhatsapp size={45} />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">WhatsApp Danışma Hattı</h2>
-                <p className="opacity-90">Hızlı bilgi almak ve MR sonucunuzu göndermek için hemen yazın.</p>
+                <h2 className="text-2xl font-bold font-sans">WhatsApp Danışma Hattı</h2>
+                <p className="opacity-90 font-sans">Hızlı bilgi almak ve MR sonucunuzu göndermek için hemen yazın.</p>
               </div>
             </div>
-            <span className="bg-white text-green-600 px-8 py-3 rounded-full font-extrabold text-lg shadow-md">
+            <span className="bg-white text-green-600 px-8 py-3 rounded-full font-black text-xl shadow-md font-sans">
               0532 174 49 00
             </span>
           </a>
@@ -53,9 +84,8 @@ export default function Iletisim() {
           
           {/* BÖLÜM B: SOSYAL MEDYA & E-POSTA (Sol Sütun) */}
           <div className="space-y-8">
-            {/* Sosyal Medya Grubu */}
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3">Sosyal Medya</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3 font-sans">Sosyal Medya</h2>
               <div className="grid grid-cols-2 gap-4">
                 <a href="https://instagram.com/nukleoplastitr" target="_blank" className="bg-white p-4 rounded-2xl border border-gray-100 flex items-center hover:shadow-md transition">
                   <FaInstagram className="text-pink-600 mr-3" size={24} />
@@ -70,7 +100,7 @@ export default function Iletisim() {
 
             {/* BÖLÜM C: E-POSTA HATTI */}
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3">E-Posta Kanalları</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3 font-sans">E-Posta Kanalları</h2>
               <div className="space-y-3">
                 <a href="mailto:info@nukleoplasti.tr" className="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between hover:border-blue-300 transition group">
                   <div className="flex items-center">
@@ -99,38 +129,47 @@ export default function Iletisim() {
 
           {/* BÖLÜM D: İLETİŞİM FORMU (Sağ Sütun) */}
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Detaylı Bilgi Formu</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 font-sans">Detaylı Bilgi Formu</h2>
             <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
               <input 
                 type="text" 
+                name="Ad Soyad"
                 placeholder="Adınız Soyadınız" 
                 required
                 className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition"
               />
               <input 
                 type="tel" 
+                name="Telefon"
                 placeholder="Telefon Numaranız" 
                 required
                 className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition"
               />
-              <select className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition">
+              <select name="Konu" className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition">
                 <option>Bel Fıtığı Hakkında</option>
                 <option>Boyun Fıtığı Hakkında</option>
                 <option>MR Değerlendirme Talebi</option>
                 <option>Randevu Talebi</option>
               </select>
               <textarea 
+                name="Mesaj"
                 placeholder="Şikayetiniz veya sorunuz..." 
                 rows={4}
+                required
                 className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition"
               ></textarea>
               <button 
                 type="submit"
-                className="w-full bg-blue-600 text-white p-4 rounded-xl font-bold text-lg flex items-center justify-center hover:bg-blue-700 transition"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 text-white p-4 rounded-xl font-bold text-lg flex items-center justify-center hover:bg-blue-700 transition disabled:bg-gray-400"
               >
-                <FaPaperPlane className="mr-3" /> Gönder
+                <FaPaperPlane className="mr-3" /> {isSubmitting ? "Gönderiliyor..." : "Gönder"}
               </button>
-              {status && <p className="text-green-600 font-bold mt-4 text-center">{status}</p>}
+              {status && (
+                <p className={`font-bold mt-4 text-center ${status.includes("başarıyla") ? "text-green-600" : "text-blue-600 animate-pulse"}`}>
+                    {status}
+                </p>
+              )}
             </form>
           </div>
 
