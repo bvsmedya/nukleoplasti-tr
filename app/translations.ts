@@ -52,6 +52,20 @@ export const translations = {
       btn: "DOSYA YÜKLEME EKRANI",
       secure: "🔒 BVS Doctors Güvenli Dijital Altyapısı"
     },
+    contactPage: {
+      title: "Bizimle İletişime Geçin",
+      desc: "Ağrısız bir hayat için uzman ekibimiz her kanaldan size destek vermeye hazır.",
+      waTitle: "WhatsApp Danışma Hattı",
+      waDesc: "Hızlı bilgi almak ve MR sonucunuzu göndermek için hemen yazın.",
+      formTitle: "Detaylı Bilgi Formu",
+      formName: "Adınız Soyadınız",
+      formPhone: "Telefon Numaranız",
+      formMsg: "Şikayetiniz veya sorunuz...",
+      formBtn: "Gönder",
+      formSending: "Gönderiliyor...",
+      formSuccess: "Mesajınız başarıyla iletildi. En kısa sürede size döneceğiz.",
+      kvkkText: "KVKK Aydınlatma Metni'ni okuduğumu kabul ederim."
+    },
     footer: {
       about: "Ameliyatsız bel ve boyun fıtığı tedavisinde güncel teknoloji, uzman hekim kadrosu ve güvenilir bilgi kaynağınız.",
       quick: "Hızlı Erişim",
@@ -114,6 +128,20 @@ export const translations = {
       btn: "OPEN UPLOAD SCREEN",
       secure: "🔒 BVS Doctors Secure Digital Infrastructure"
     },
+    contactPage: {
+      title: "Contact Us",
+      desc: "Our expert team is ready to support you through all channels for a pain-free life.",
+      waTitle: "WhatsApp Hotline",
+      waDesc: "Text us for fast info and MRI review.",
+      formTitle: "Information Form",
+      formName: "Full Name",
+      formPhone: "Phone Number",
+      formMsg: "Your message...",
+      formBtn: "Send",
+      formSending: "Sending...",
+      formSuccess: "Sent! We will contact you soon.",
+      kvkkText: "I accept the Data Privacy terms."
+    },
     footer: {
       about: "Your source for current technology, expert physician staff, and reliable information in non-surgical hernia treatment.",
       quick: "Quick Links",
@@ -175,6 +203,20 @@ export const translations = {
       desc: "Téléchargez vos scans IRM ou rapports sur notre système sécurisé pour examen.",
       btn: "OUVRIR L'ÉCRAN DE CHARGEMENT",
       secure: "🔒 BVS Doctors Infrastructure Numérique Sécurisée"
+    },
+    contactPage: {
+      title: "Contactez-nous",
+      desc: "Notre équipe d'experts est prête à vous accompagner sur tous les canaux pour une vie sans douleur.",
+      waTitle: "Ligne WhatsApp",
+      waDesc: "Écrivez-nous pour info et revue d'IRM.",
+      formTitle: "Formulaire d'info",
+      formName: "Nom Complet",
+      formPhone: "Téléphone",
+      formMsg: "Votre message...",
+      formBtn: "Envoyer",
+      formSending: "Envoi...",
+      formSuccess: "Envoyé! Nous vous contacterons bientôt.",
+      kvkkText: "J'accepte la politique de confidentialité."
     },
     footer: {
       about: "Votre source d'information fiable pour le traitement non chirurgical des hernies discales.",
