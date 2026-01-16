@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaInstagram, FaTiktok, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Iletisim() {
   const [status, setStatus] = useState("");
@@ -15,7 +16,6 @@ export default function Iletisim() {
     setStatus("Gönderiliyor...");
 
     const formData = new FormData(e.currentTarget);
-    // Senin verdiğin Web3Forms Key'i buraya ekledik
     formData.append("access_key", "de42f46e-be92-4ad8-b776-595a8c2fe997");
 
     const object = Object.fromEntries(formData);
@@ -82,7 +82,7 @@ export default function Iletisim() {
 
         <div className="grid md:grid-cols-2 gap-12">
           
-          {/* BÖLÜM B: SOSYAL MEDYA & E-POSTA (Sol Sütun) */}
+          {/* BÖLÜM B & C: SOSYAL MEDYA & E-POSTA */}
           <div className="space-y-8">
             <div>
               <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3 font-sans">Sosyal Medya</h2>
@@ -98,7 +98,6 @@ export default function Iletisim() {
               </div>
             </div>
 
-            {/* BÖLÜM C: E-POSTA HATTI */}
             <div>
               <h2 className="text-xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-3 font-sans">E-Posta Kanalları</h2>
               <div className="space-y-3">
@@ -127,7 +126,7 @@ export default function Iletisim() {
             </div>
           </div>
 
-          {/* BÖLÜM D: İLETİŞİM FORMU (Sağ Sütun) */}
+          {/* BÖLÜM D: İLETİŞİM FORMU (KVKK Onaylı) */}
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 font-sans">Detaylı Bilgi Formu</h2>
             <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
@@ -158,13 +157,20 @@ export default function Iletisim() {
                 required
                 className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 transition"
               ></textarea>
+
+              {/* KVKK ONAY METNİ */}
+              <p className="text-[10px] text-gray-400 leading-tight mb-4">
+                "Gönder" butonuna basarak, <Link href="/kvkk" target="_blank" className="underline hover:text-blue-600">KVKK Aydınlatma Metni</Link>'ni okuduğumu ve kişisel verilerimin tıbbi danışmanlık amacıyla işlenmesini kabul ettiğimi beyan ederim.
+              </p>
+
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white p-4 rounded-xl font-bold text-lg flex items-center justify-center hover:bg-blue-700 transition disabled:bg-gray-400"
+                className="w-full bg-blue-600 text-white p-4 rounded-xl font-bold text-lg flex items-center justify-center hover:bg-blue-700 transition disabled:bg-gray-400 shadow-lg"
               >
                 <FaPaperPlane className="mr-3" /> {isSubmitting ? "Gönderiliyor..." : "Gönder"}
               </button>
+              
               {status && (
                 <p className={`font-bold mt-4 text-center ${status.includes("başarıyla") ? "text-green-600" : "text-blue-600 animate-pulse"}`}>
                     {status}
