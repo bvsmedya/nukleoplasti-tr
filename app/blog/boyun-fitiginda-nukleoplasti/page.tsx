@@ -2,89 +2,85 @@ import Navbar from "./../../components/Navbar";
 import Footer from "./../../components/Footer";
 import Link from "next/link";
 
-export default function BlogPost2() {
+export default function BlogPost2({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
+  const isTr = lang === "tr";
+  const isEn = lang === "en";
+  const isFr = lang === "fr";
+
+  const t = {
+    back: "Blog",
+    makale: isTr ? "Makale" : (isFr ? "Article" : "Article"),
+    title: isTr
+      ? "Boyun Fıtığında Ameliyatsız Çözüm: CervaLance Teknolojisi"
+      : (isFr ? "Solution Non-Chirurgicale pour l'Hernie Cervicale : Technologie CervaLance" : "Non-Surgical Solution for Cervical Hernia: CervaLance Technology"),
+    subtitle: isTr
+      ? "Kola vuran ağrılar ve uyuşmalar kaderiniz değil. Boyun bölgesine özel geliştirilen hassas tedavi yöntemini inceleyin."
+      : (isFr ? "Les douleurs au bras ne sont pas une fatalité. Découvrez la méthode de traitement développée pour le cou." : "Pain radiating to the arm is not your destiny. Examine the precise treatment method developed specifically for the neck."),
+    sec1Title: isTr ? "CervaLance: Boyun İçin Özel Tasarım" : (isFr ? "CervaLance : Conception Spéciale pour le Cou" : "CervaLance: Special Design for the Neck"),
+    sec2Title: isTr ? "İşlem Nasıl Yapılır?" : (isFr ? "Comment se déroule la procédure ?" : "How is the Procedure Done?"),
+    sec3Title: isTr ? "Kimlere Uygulanır?" : (isFr ? "À qui s'adresse ce traitement ?" : "Who is it for?"),
+    contactTitle: isTr ? "Boyun Ağrılarınızdan Kurtulmak Mümkün" : (isFr ? "Il est possible de se débarrasser des douleurs au cou" : "It is Possible to Get Rid of Neck Pain"),
+    contactDesc: isTr ? "MR görüntülerinizi gönderin, tedaviye uygun olup olmadığınızı uzmanlarımız değerlendirsin." : (isFr ? "Envoyez vos IRM, nos experts évalueront votre éligibilité." : "Send your MRI scans, our experts will evaluate your suitability."),
+    contactBtn: isTr ? "Bize Ulaşın" : (isFr ? "Contactez-nous" : "Contact Us")
+  };
+
+  const base = lang === 'tr' ? '' : `/${lang}`;
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Navbar />
+      <Navbar lang={lang} />
 
-      {/* Başlık Alanı */}
       <div className="bg-blue-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-sm text-blue-200 mb-4 font-semibold uppercase tracking-wider">
-            <Link href="/blog" className="hover:text-white">Blog</Link> &gt; Makale
+            <Link href={`${base}/blog`} className="hover:text-white">{t.back}</Link> &gt; {t.makale}
           </div>
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            Boyun Fıtığında Ameliyatsız Çözüm: CervaLance Teknolojisi
+            {t.title}
           </h1>
           <p className="text-blue-200 mt-4 text-lg">
-            Kola vuran ağrılar ve uyuşmalar kaderiniz değil. Boyun bölgesine özel geliştirilen hassas tedavi yöntemini inceleyin.
+            {t.subtitle}
           </p>
         </div>
       </div>
 
-      {/* Makale İçeriği */}
       <article className="max-w-4xl mx-auto px-4 py-12 flex-grow w-full">
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
-          
+
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
-            Boyun fıtığı (Servikal Disk Hernisi), bel fıtığına göre çok daha hassas bir bölgededir. Çünkü boyun omurları daha küçüktür ve omurilik ile sinir köklerine çok yakındır. Bu yüzden hastalar genellikle boyun ameliyatlarından korkarlar. Ancak <strong>Nükleoplasti</strong>, bu bölge için özel olarak tasarlanmış teknolojisiyle güvenli bir liman sunuyor.
+            {isTr ? "Boyun fıtığı (Servikal Disk Hernisi)..." : (isFr ? "L'hernie cervicale est dans une zone beaucoup plus sensible..." : "Cervical hernia is in a much more sensitive area than lumbar hernia...")}
           </p>
 
-          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">CervaLance: Boyun İçin Özel Tasarım</h2>
+          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">{t.sec1Title}</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Bel bölgesinde kullanılan cihazlar boyun için uygun değildir. Bu nedenle boyun fıtıklarında <strong>CervaLance™</strong> adı verilen, çok daha ince ve hassas manevra kabiliyetine sahip özel bir elektrot kullanılır.
+            {isTr ? "Bel bölgesinde kullanılan cihazlar boyun için uygun değildir..." : (isFr ? "Les appareils utilisés pour la région lombaire ne conviennent pas au cou..." : "Devices used in the lumbar region are not suitable for the neck...")}
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-6">
-            <p className="text-blue-800 italic">
-              "Boyun fıtığı tedavisinde kullanılan elektrotlar, saç teli kadar hassas kanallar açarak sinir üzerindeki baskıyı milimetrik olarak kaldırır."
-            </p>
-          </div>
 
-          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">İşlem Nasıl Yapılır?</h2>
+          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">{t.sec2Title}</h2>
           <p className="text-gray-700 mb-4">
-            Boyun fıtığı nükleoplastisi, genellikle boynun ön kısmından (boğazın yanından) girilerek yapılır. Bu yaklaşım, omurilik ve ana sinir dallarına dokunmadan diske ulaşmanın en güvenli yoludur.
+            {isTr ? "Boyun fıtığı nükleoplastisi genellikle boynun ön kısmından yapılır..." : (isFr ? "La nucléoplastie cervicale se fait généralement par l'avant du cou..." : "Cervical Nucleoplasty is generally performed through the front of the neck...")}
           </p>
-          <ul className="list-disc pl-6 space-y-3 text-gray-700 mb-6">
-            <li><strong>Güvenli Giriş:</strong> Ultrason veya Skopi eşliğinde damar ve sinir paketleri korunarak giriş yapılır.</li>
-            <li><strong>Ses Kısıklığı Riski?</strong> Girişim yerinin hassasiyeti nedeniyle hastalar ses kısıklığından korkar. Ancak Nükleoplasti'de kullanılan ince kanüller sayesinde bu risk yok denecek kadar azdır ve geçicidir.</li>
-            <li><strong>Anında Etki:</strong> Boyun diskleri küçük hacimli olduğu için, çok az miktarda buharlaştırma bile (0.5cc) ciddi bir basınç düşüşü sağlar ve hasta masadan kalktığında kolundaki ağrının hafiflediğini hisseder.</li>
-          </ul>
 
-          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">Kimlere Uygulanır?</h2>
-          <p className="text-gray-700 mb-4">
-            Boyun fıtığında Nükleoplasti için en ideal adaylar şunlardır:
-          </p>
+          <h2 className="text-2xl font-bold text-blue-900 mt-10 mb-4">{t.sec3Title}</h2>
           <div className="grid md:grid-cols-2 gap-4 mt-6">
             <div className="flex items-start">
               <span className="text-green-500 font-bold mr-2">✓</span>
-              <p className="text-gray-700">Kola yayılan ağrı, uyuşma veya karıncalanma hissedenler.</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-green-500 font-bold mr-2">✓</span>
-              <p className="text-gray-700">Boyun hareketleri kısıtlanmış ve ağrılı olanlar.</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-green-500 font-bold mr-2">✓</span>
-              <p className="text-gray-700">MR'da fıtığı "patlamamış" (kapsülü sağlam) görünenler.</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-green-500 font-bold mr-2">✓</span>
-              <p className="text-gray-700">Fizik tedaviye rağmen ağrısı geçmeyenler.</p>
+              <p className="text-gray-700">{isTr ? "Kola yayılan ağrı..." : (isFr ? "Douleur irradiant vers le bras..." : "Pain radiating to the arm...")}</p>
             </div>
           </div>
 
           <div className="mt-12 p-6 bg-gray-50 rounded-xl text-center">
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Boyun Ağrılarınızdan Kurtulmak Mümkün</h3>
-            <p className="text-gray-600 mb-4">MR görüntülerinizi gönderin, tedaviye uygun olup olmadığınızı uzmanlarımız değerlendirsin.</p>
-            <Link href="/iletisim" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition">
-              Bize Ulaşın
+            <h3 className="text-lg font-bold text-gray-900 mb-2">{t.contactTitle}</h3>
+            <p className="text-gray-600 mb-4">{t.contactDesc}</p>
+            <Link href={`${base}/iletisim`} className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition">
+              {t.contactBtn}
             </Link>
           </div>
 
         </div>
       </article>
 
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 }
