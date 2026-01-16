@@ -41,7 +41,7 @@ export const translations = {
       eligibleTitle: "Kimler İçin Uygundur?",
       eligibleItems: [
         "Kapsüllü Fıtıklar: Diskin dış çeperinin henüz yırtılmadığı durumlar.",
-        "Kronik Ağrı: 4-6 hafta geçmeyen ağrılar."
+        "Dirençli Ağrılar: İlaç, istirahat ve fizik tedaviye rağmen 3 aydan uzun süren ve kronikleşen ağrılar."
       ],
       notEligibleTitle: "Kimler İçin Uygun Değildir?",
       notEligibleItems: [
@@ -125,7 +125,7 @@ export const translations = {
       eligibleTitle: "Who is it Suitable For?",
       eligibleItems: [
         "Encapsulated Hernias: Cases where the outer wall of the disc has not yet ruptured.",
-        "Chronic Pain: Pain that has not gone away for 4-6 weeks."
+        "Resistant Pain: Chronic pain lasting more than 3 months despite medication and physical therapy."
       ],
       notEligibleTitle: "Who is it Not Suitable For?",
       notEligibleItems: [
@@ -209,7 +209,7 @@ export const translations = {
       eligibleTitle: "Pour qui est-ce adapté ?",
       eligibleItems: [
         "Hernies encapsulées : Cas où la paroi externe du disque n'est pas encore rompue.",
-        "Douleur chronique : Douleurs qui ne disparaissent pas pendant 4 à 6 semaines."
+        "Douleurs résistantes : Douleurs chroniques durant plus de 3 mois malgré les traitements (médicaments, repos, kinésithérapie)."
       ],
       notEligibleTitle: "Pour qui n'est-ce pas adapté ?",
       notEligibleItems: [

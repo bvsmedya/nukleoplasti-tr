@@ -25,12 +25,17 @@ export default function Tedavi({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
             {t.eligibleTitle}
           </h2>
           <ul className="space-y-3 text-gray-700">
-            {t.eligibleItems.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
+            {t.eligibleItems.map((item, index) => {
+              const [label, content] = item.includes(':') ? item.split(':') : [null, item];
+              return (
+                <li key={index} className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>
+                    {label ? <strong>{label}:</strong> : null} {content}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </section>
 
