@@ -83,7 +83,7 @@ export default function Iletisim({ lang = "tr" }: { lang?: "tr" | "en" | "fr" })
               </div>
             </div>
             <span className="bg-white text-green-600 px-8 py-3 rounded-full font-black text-xl shadow-md font-sans">
-              0532 174 49 00
+              +90 532 174 49 00
             </span>
           </a>
         </div>

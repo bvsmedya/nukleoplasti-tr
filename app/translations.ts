@@ -96,7 +96,7 @@ export const translations = {
       waTitle: "WhatsApp Hotline", waDesc: "Text us for fast info and MRI review.",
       formTitle: "Information Form", formName: "Full Name", formPhone: "Phone Number",
       formMsg: "Your message...", formBtn: "Send", formSending: "Sending...",
-      formSuccess: "Sent! We will contact you soon.", kvkkText: "I accept the Data Privacy terms."
+      formSuccess: "Sent! We will contact you soon.", kvkkText: "I accept the GDPR Compliance & Privacy Policy terms."
     },
     nedirPage: {
       title: "What is Nucleoplasty?",
@@ -149,7 +149,7 @@ export const translations = {
       desc: "Current treatment methods and scientific data.",
       readMore: "Read More →"
     },
-    footer: { about: "Your source for non-surgical hernia treatment.", quick: "Quick Links", contact: "Contact Us", disclaimer: "Consult your doctor for diagnosis.", kvkk: "Privacy Policy" },
+    footer: { about: "Your source for non-surgical hernia treatment.", quick: "Quick Links", contact: "Contact Us", disclaimer: "Consult your doctor for diagnosis.", kvkk: "Privacy Policy & GDPR Compliance" },
     common: { testBtn: "Eligibility Test" }
   },
   fr: {
@@ -169,7 +169,7 @@ export const translations = {
       waTitle: "Ligne WhatsApp", waDesc: "Écrivez-nous pour info et revue d'IRM.",
       formTitle: "Formulaire d'info", formName: "Nom Complet", formPhone: "Téléphone",
       formMsg: "Votre message...", formBtn: "Envoyer", formSending: "Envoi...",
-      formSuccess: "Envoyé! Nous vous contacterons bientôt.", kvkkText: "J'accepte la politique de confidentialité."
+      formSuccess: "Envoyé! Nous vous contacterons bientôt.", kvkkText: "J'accepte la politique de confidentialité et le RGPD."
     },
     nedirPage: {
       title: "Qu'est-ce que la nucléoplastie ?",
@@ -222,7 +222,7 @@ export const translations = {
       desc: "Méthodes de traitement actuelles et données scientifiques.",
       readMore: "Lire la Suite →"
     },
-    footer: { about: "Traitement non chirurgical des hernies.", quick: "Accès Rapide", contact: "Contactez-nous", disclaimer: "Consultez votre médecin.", kvkk: "Confidentialité" },
+    footer: { about: "Traitement non chirurgical des hernies.", quick: "Accès Rapide", contact: "Contactez-nous", disclaimer: "Consultez votre médecin.", kvkk: "Confidentialité & Conformité RGPD" },
     common: { testBtn: "Test d'Éligibilité" }
   }
 };

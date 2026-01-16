@@ -63,7 +63,7 @@ export default function Navbar({ lang = "tr" }: { lang?: "tr" | "en" | "fr" }) {
             {/* TELEFON */}
             <a href="tel:+905321744900" className="flex flex-col items-end text-gray-700 group whitespace-nowrap min-w-fit">
               <span className="text-[9px] xl:text-[10px] font-bold text-gray-400 uppercase leading-none mb-1">{t.consult}</span>
-              <span className="text-sm xl:text-md font-black group-hover:text-blue-600 transition leading-none">0532 174 49 00</span>
+              <span className="text-sm xl:text-md font-black group-hover:text-blue-600 transition leading-none whitespace-nowrap">+90 532 174 49 00</span>
             </a>
 
             {/* İLETİŞİM BUTONU */}

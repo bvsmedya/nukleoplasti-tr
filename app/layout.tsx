@@ -7,7 +7,7 @@ export const metadata = {
   title: "Nükleoplasti.tr | Ameliyatsız Bel ve Boyun Fıtığı Tedavisi",
   description: "Bel ve boyun fıtığında neştersiz, dikişsiz ve aynı gün taburcu imkanı sunan modern Nükleoplasti (Buharlaştırma) teknolojisi.",
   keywords: ["nükleoplasti", "bel fıtığı tedavisi", "ameliyatsız fıtık", "boyun fıtığı", "bvs doctors"],
-  
+
   // 2. SOSYAL MEDYA PAYLAŞIM AYARLARI (WhatsApp, Facebook, Instagram)
   openGraph: {
     title: "Nükleoplasti.tr | Ameliyatsız Fıtık Tedavisi",
@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "Nükleoplasti TR",
     images: [
       {
-        url: "/og-image.jpg", 
+        url: "https://www.nukleoplasti.tr/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Nükleoplasti Tedavisi Önizleme",
@@ -31,7 +31,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Nükleoplasti.tr | Ameliyatsız Fıtık Çözümü",
     description: "Ağrı bir kader değil, Nükleoplasti ile tanışın.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.nukleoplasti.tr/og-image.jpg"],
   },
 
   // 4. İKONLAR
