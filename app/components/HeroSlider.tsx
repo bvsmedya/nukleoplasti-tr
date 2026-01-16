@@ -5,28 +5,24 @@ import Link from "next/link";
 const slides = [
   {
     id: 1,
-    image: "/slider-teknoloji.jpg",
+    image: "/bel-hasta-kare.jpg", // public klasöründeki dosya adınla aynı olmalı
     title: "Ameliyatsız Bel Fıtığı Tedavisi",
-    desc: "Nükleoplasti yöntemi ile ağrılarınızdan kesi ve dikiş olmadan, aynı gün kurtulun.",
-    buttonText: "Tedaviyi İncele",
-    link: "/blog/nukleoplasti-nedir",
+    subtitle: "Nükleoplasti (Buharlaştırma)",
+    desc: "Bel fıtığına bağlı bacak ağrısı ve uyuşmalardan, neştersiz ve dikişsiz bir yöntemle aynı gün kurtulun.",
+    buttonText: "Bel Fıtığı Detay",
+    link: "/blog/bel-fitiginda-nukleoplasti",
+    bgColor: "bg-blue-50"
   },
   {
     id: 2,
-    image: "/slider-uzmanlik.jpg",
-    title: "Uzman Hekim Kadrosu", // BVS Doctors yazısını kaldırdık :)
-    desc: "Alanında uzman kadromuz ve en güncel plazma teknolojisi ile sağlığınıza güvenle kavuşun.",
-    buttonText: "Bilgi Al",
-    link: "/iletisim",
-  },
-  {
-    id: 3,
-    image: "/slider-konfor.jpg",
-    title: "Hızlı İyileşme, Kesintisiz Hayat",
-    desc: "İşlemden 1-2 saat sonra yürüyerek taburcu olun, sosyal hayatınıza ara vermeyin.",
-    buttonText: "Uygunluk Testi",
-    link: "/test",
-  },
+    image: "/boyun-hasta-kare.jpg", // public klasöründeki dosya adınla aynı olmalı
+    title: "Ameliyatsız Boyun Fıtığı Tedavisi",
+    subtitle: "Hassas ve Güvenli Çözüm",
+    desc: "Kola vuran ağrılar yaşam kalitenizi düşürmesin. Nükleoplasti teknolojisi ile riskleri minimize edin.",
+    buttonText: "Boyun Fıtığı Detay",
+    link: "/blog/boyun-fitiginda-nukleoplasti",
+    bgColor: "bg-slate-50"
+  }
 ];
 
 export default function HeroSlider() {
@@ -35,54 +31,66 @@ export default function HeroSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 6000); 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative h-[600px] w-full overflow-hidden bg-gray-900">
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === current ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {/* Arkaplan Resmi */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
+    <div className={`relative w-full overflow-hidden transition-colors duration-1000 ${slides[current].bgColor}`}>
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
+        <div className="flex flex-col md:flex-row items-center gap-12">
           
-          {/* Karartma Katmanı */}
-          <div className="absolute inset-0 bg-black/40" />
-
-          {/* Yazı İçeriği */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              {slide.title}
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-100 mb-8 max-w-3xl drop-shadow-md">
-              {slide.desc}
-            </p>
-            <Link
-              href={slide.link}
-              className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-blue-700 transition transform hover:scale-105 shadow-lg"
-            >
-              {slide.buttonText}
-            </Link>
+          {/* SOL TARAF: METİN İÇERİĞİ */}
+          <div className="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+            <div key={current} className="animate-in fade-in slide-in-from-left duration-700">
+              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">
+                {slides[current].subtitle}
+              </span>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                {slides[current].title}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+                {slides[current].desc}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Link
+                  href={slides[current].link}
+                  className="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-lg"
+                >
+                  {slides[current].buttonText}
+                </Link>
+                <Link
+                  href="/test"
+                  className="bg-white text-gray-900 border-2 border-gray-200 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition shadow-sm"
+                >
+                  Uygunluk Testi
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
 
-      {/* Alt Noktalar */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
+          {/* SAĞ TARAF: KARE RESİM */}
+          <div className="w-full md:w-1/2 order-1 md:order-2">
+            <div key={current} className="relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden rounded-3xl shadow-2xl border-8 border-white animate-in fade-in zoom-in duration-700">
+              <img 
+                src={slides[current].image} 
+                alt={slides[current].title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Navigasyon Noktaları */}
+      <div className="flex justify-center pb-8 gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              index === current ? "bg-blue-500 w-8" : "bg-white/50 hover:bg-white"
+              index === current ? "bg-blue-600 w-10" : "bg-gray-300"
             }`}
           />
         ))}
