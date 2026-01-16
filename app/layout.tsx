@@ -1,6 +1,6 @@
 import "./globals.css";
 import React from "react";
-import Script from "next/script"; // Google kodlarını güvenli çalıştırmak için gerekli
+import Script from "next/script";
 
 export const metadata = {
   // 1. ARAMA MOTORU AYARLARI (Google)
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className="antialiased">
-        {/* --- GOOGLE ANALYTICS BAŞLANGIÇ --- */}
+        {/* --- GOOGLE ANALYTICS (gtag.js) BAŞLANGIÇ --- */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VXJ96LHHS3"
           strategy="afterInteractive"
