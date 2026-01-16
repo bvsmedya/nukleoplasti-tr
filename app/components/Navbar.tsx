@@ -29,7 +29,9 @@ export default function Navbar() {
             <Link href="/tedavi" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Tedavi Süreci</Link>
             <Link href="/blog" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition">Blog</Link>
           </div>
-
+<Link href="/test" className="text-blue-600 font-bold px-3 py-2 animate-pulse hover:text-blue-800 transition">
+  Tedaviye Uygun muyum?
+</Link>
           {/* İLETİŞİM BUTONU */}
           <div>
             <Link href="/iletisim" className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-lg hover:shadow-blue-200">
